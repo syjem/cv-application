@@ -85,7 +85,7 @@ export function ExperienceInformation({
         </p>
       </div>
       <h5 className="role">
-        Role: <em>{position}</em>
+        <em>{position}</em>
       </h5>
       <p className="description">{description}</p>
     </section>
