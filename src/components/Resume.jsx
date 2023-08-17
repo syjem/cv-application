@@ -3,6 +3,7 @@ import {
   initialPersonalState,
   initialEducationState,
   initialExperienceState,
+  initialSkillSet,
   editors,
 } from "./Data/Initials.jsx";
 
@@ -11,6 +12,7 @@ import {
   EducationalInformation,
   ExperienceInformation,
   SkillSetInformation,
+  SkillsEditList,
 } from "./Display.jsx";
 
 import PersonalEditor from "./Forms/Personal.jsx";
@@ -22,10 +24,13 @@ function Resume() {
   const [personal, setPersonal] = useState(initialPersonalState);
   const [education, setEducation] = useState(initialEducationState);
   const [experience, setExperience] = useState(initialExperienceState);
-  const [skill, setSkill] = useState("");
-  const [skillList, setSkillList] = useState([]);
-  const [isDisabled, setIsDisabled] = useState(true);
+
   const [activeEditor, setActiveEditor] = useState(editors[0].key);
+
+  // Skill Set states
+  const [skill, setSkill] = useState("");
+  const [skillList, setSkillList] = useState(initialSkillSet);
+  const [isDisabled, setIsDisabled] = useState(true);
 
   const handlePersonalChange = (e) => {
     const { id, value } = e.target;
@@ -67,7 +72,23 @@ function Resume() {
   };
 
   const handleAddSkill = (newSkill) => {
-    setSkillList([...skillList, newSkill]);
+    setSkillList([...skillList, { id: skillList.length, skill: newSkill }]);
+  };
+
+  const handleSkillEditClick = (clickedSkillId) => {
+    const clickedSkill = skillList.find((skill) => skill.id === clickedSkillId);
+    if (clickedSkill) {
+      setSkill(clickedSkill.skill);
+      setIsDisabled(false);
+    }
+  };
+
+  const handleSkillDelete = (e, deletedSkillId) => {
+    e.stopPropagation();
+    const newSkill = skillList.filter((skill) => skill.id !== deletedSkillId);
+    if (newSkill) {
+      setSkillList(newSkill);
+    }
   };
 
   const handleNavClick = (editorKey) => {
@@ -109,12 +130,20 @@ function Resume() {
                 }`}
                 onClick={() => handleNavClick(editor.key)}
               >
-                {editor.label}
+                {editor.label} <i className="rotate-icon ">{editor.icon}</i>
               </button>
             </li>
           ))}
         </ul>
+        {activeEditor === "skill-set" && (
+          <SkillsEditList
+            skills={skillList}
+            handleSkillEditClick={handleSkillEditClick}
+            handleDelete={handleSkillDelete}
+          />
+        )}
       </nav>
+
       <section className="editors">
         {activeEditor === "personal" && (
           <PersonalEditor
@@ -148,8 +177,8 @@ function Resume() {
           <PersonalInformation {...personalProps} />
         </section>
         <section className="main-content">
-          <EducationalInformation {...educationalProps} />
           <ExperienceInformation {...experienceProps} />
+          <EducationalInformation {...educationalProps} />
           <SkillSetInformation skills={skillList} />
         </section>
       </article>
