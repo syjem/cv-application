@@ -31,7 +31,8 @@ function Resume() {
   const [skill, setSkill] = useState("");
   const [skillList, setSkillList] = useState(initialSkillSet);
   const [isDisabled, setIsDisabled] = useState(true);
-  const [editingSkill, setEditingSkill] = useState(null);
+  const [isEditing, setIsEditing] = useState(false);
+  const [editingSkillId, setEditingSkillId] = useState(null);
 
   const handlePersonalChange = (e) => {
     const { id, value } = e.target;
@@ -65,17 +66,18 @@ function Resume() {
 
   const handleSkillSubmit = (e) => {
     e.preventDefault();
-    if (!isDisabled) {
+    if (isEditing) {
+      setSkillList((prevSkill) =>
+        prevSkill.map((skillX) =>
+          skillX.id === editingSkillId ? { ...skillX, skill: skill } : skillX
+        )
+      );
+      setSkill("");
+      setIsEditing(false);
+    } else {
       handleAddSkill(skill);
       setSkill("");
       setIsDisabled(true);
-    } else {
-      setSkillList((prevSkill) =>
-        prevSkill.map((skill) =>
-          skill.id === editingSkill ? { ...skillList, skill: skill } : skill
-        )
-      );
-      setIsDisabled(false);
     }
   };
 
@@ -84,8 +86,9 @@ function Resume() {
   };
 
   const handleSkillEditClick = (clickedSkillId) => {
+    setIsEditing(true);
     const clickedSkill = skillList.find((skill) => skill.id === clickedSkillId);
-    setEditingSkill(clickedSkillId);
+    setEditingSkillId(clickedSkillId);
     if (clickedSkill) {
       setSkill(clickedSkill.skill);
       setIsDisabled(false);
