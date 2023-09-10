@@ -74,6 +74,7 @@ function Resume() {
       );
       setSkill("");
       setIsEditing(false);
+      setIsDisabled(true);
     } else {
       handleAddSkill(skill);
       setSkill("");
@@ -178,7 +179,7 @@ function Resume() {
         {activeEditor === "skill-set" && (
           <SkillSetEditor
             skill={skill}
-            disabled={isDisabled}
+            isDisabled={isDisabled}
             handleSkillChange={handleSkillChange}
             handleSkillSubmit={handleSkillSubmit}
           />
