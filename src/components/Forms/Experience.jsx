@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 function ExperienceEditor({
   company,
   position,
@@ -13,6 +15,8 @@ function ExperienceEditor({
       <input
         type="text"
         id="company"
+        name="company"
+        autoComplete="off"
         value={company}
         onChange={handleExperienceChange}
       />
@@ -20,6 +24,8 @@ function ExperienceEditor({
       <input
         type="text"
         id="position"
+        name="position"
+        autoComplete="off"
         value={position}
         onChange={handleExperienceChange}
       />
@@ -27,6 +33,8 @@ function ExperienceEditor({
       <input
         type="text"
         id="startDate"
+        name="startDate"
+        autoComplete="off"
         value={startDate}
         onChange={handleExperienceChange}
       />
@@ -34,6 +42,8 @@ function ExperienceEditor({
       <input
         type="text"
         id="endDate"
+        name="endDate"
+        autoComplete="off"
         value={endDate}
         onChange={handleExperienceChange}
       />
@@ -41,6 +51,7 @@ function ExperienceEditor({
       <textarea
         name="description"
         id="description"
+        autoComplete="off"
         rows="5"
         value={description}
         onChange={handleExperienceChange}
@@ -48,5 +59,14 @@ function ExperienceEditor({
     </form>
   );
 }
+
+ExperienceEditor.propTypes = {
+  company: PropTypes.string.isRequired,
+  position: PropTypes.string.isRequired,
+  startDate: PropTypes.string.isRequired,
+  endDate: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  handleExperienceChange: PropTypes.func.isRequired,
+};
 
 export default ExperienceEditor;

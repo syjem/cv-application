@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 function EducationalEditor({
   course,
   school,
@@ -41,5 +43,13 @@ function EducationalEditor({
     </>
   );
 }
+
+EducationalEditor.propTypes = {
+  course: PropTypes.string.isRequired,
+  school: PropTypes.string.isRequired,
+  yearStarted: PropTypes.number.isRequired,
+  yearGraduated: PropTypes.number.isRequired,
+  handleEducationChange: PropTypes.func.isRequired,
+};
 
 export default EducationalEditor;

@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 function SkillSetEditor({
   skill,
   isDisabled,
@@ -24,5 +26,12 @@ function SkillSetEditor({
     </form>
   );
 }
+
+SkillSetEditor.propTypes = {
+  skill: PropTypes.string.isRequired,
+  isDisabled: PropTypes.bool.isRequired,
+  handleSkillChange: PropTypes.func.isRequired,
+  handleSkillSubmit: PropTypes.func.isRequired,
+};
 
 export default SkillSetEditor;

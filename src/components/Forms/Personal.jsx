@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 function PersonalEditor({
   name,
   title,
@@ -10,17 +12,56 @@ function PersonalEditor({
     <form>
       <h2>Personal Details</h2>
       <label htmlFor="name">Name</label>
-      <input id="name" value={name} onChange={handlePersonalChange} />
+      <input
+        id="name"
+        name="name"
+        autoComplete="off"
+        value={name}
+        onChange={handlePersonalChange}
+      />
       <label htmlFor="title">Title</label>
-      <input id="title" value={title} onChange={handlePersonalChange} />
+      <input
+        id="title"
+        name="title"
+        autoComplete="off"
+        value={title}
+        onChange={handlePersonalChange}
+      />
       <label htmlFor="email">Email</label>
-      <input id="email" value={email} onChange={handlePersonalChange} />
+      <input
+        id="email"
+        name="email"
+        autoComplete="off"
+        value={email}
+        onChange={handlePersonalChange}
+      />
       <label htmlFor="number">Number</label>
-      <input id="number" value={number} onChange={handlePersonalChange} />
+      <input
+        id="number"
+        name="number"
+        autoComplete="off"
+        value={number}
+        onChange={handlePersonalChange}
+      />
       <label htmlFor="address">Address</label>
-      <input id="address" value={address} onChange={handlePersonalChange} />
+      <input
+        id="address"
+        name="address"
+        autoComplete="off"
+        value={address}
+        onChange={handlePersonalChange}
+      />
     </form>
   );
 }
+
+PersonalEditor.propTypes = {
+  name: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+  number: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  address: PropTypes.string.isRequired,
+  handlePersonalChange: PropTypes.func.isRequired,
+};
 
 export default PersonalEditor;

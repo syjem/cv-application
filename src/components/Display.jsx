@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import profileImage from "../assets/profile.jpg";
 import PersonIcon from "@mui/icons-material/Person";
 import PhoneIcon from "@mui/icons-material/Phone";
@@ -42,6 +43,14 @@ export function PersonalInformation({ name, title, email, number, address }) {
   );
 }
 
+PersonalInformation.propTypes = {
+  name: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+  number: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  address: PropTypes.string.isRequired,
+};
+
 export function EducationalInformation({
   course,
   school,
@@ -64,6 +73,13 @@ export function EducationalInformation({
     </section>
   );
 }
+
+EducationalInformation.propTypes = {
+  course: PropTypes.string.isRequired,
+  school: PropTypes.string.isRequired,
+  yearStarted: PropTypes.number.isRequired,
+  yearGraduated: PropTypes.number.isRequired,
+};
 
 export function ExperienceInformation({
   company,
@@ -92,6 +108,14 @@ export function ExperienceInformation({
   );
 }
 
+ExperienceInformation.propTypes = {
+  company: PropTypes.string.isRequired,
+  position: PropTypes.string.isRequired,
+  startDate: PropTypes.string.isRequired,
+  endDate: PropTypes.PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+};
+
 export function SkillSetInformation({ skills }) {
   return (
     <section className="skill-set-info">
@@ -109,6 +133,10 @@ export function SkillSetInformation({ skills }) {
     </section>
   );
 }
+
+SkillSetInformation.propTypes = {
+  skills: PropTypes.array.isRequired,
+};
 
 export function SkillsEditList({ skills, handleSkillEditClick, handleDelete }) {
   return (
@@ -131,3 +159,9 @@ export function SkillsEditList({ skills, handleSkillEditClick, handleDelete }) {
     </ul>
   );
 }
+
+SkillsEditList.propTypes = {
+  skills: PropTypes.array.isRequired,
+  handleSkillEditClick: PropTypes.func.isRequired,
+  handleDelete: PropTypes.func.isRequired,
+};
