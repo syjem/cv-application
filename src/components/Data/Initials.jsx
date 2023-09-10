@@ -4,7 +4,7 @@ export const initialPersonalState = {
   name: "Jemuel Repoylo",
   email: "syjem143@gmail.com",
   number: "+639488450249",
-  address: "Tambulig Zamboanga Del Sur, Philippines",
+  address: "Tambulig, Zamboanga Del Sur, Philippines",
   title: "Web Developer",
 };
 
@@ -29,11 +29,8 @@ export const initialSkillSet = [
   { id: 1, skill: "CSS" },
   { id: 2, skill: "JavaScript" },
   { id: 3, skill: "React" },
-  { id: 4, skill: "Bootstrap" },
+  { id: 4, skill: "TypeScript" },
   { id: 5, skill: "SCSS" },
-  { id: 6, skill: "Python" },
-  { id: 7, skill: "Flask" },
-  { id: 8, skill: "SQL/SQLite" },
 ];
 
 const iconChevron = <ExpandMoreIcon />;
