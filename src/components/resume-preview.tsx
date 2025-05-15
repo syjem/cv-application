@@ -1,5 +1,5 @@
 import type { ResumeData } from "@/types/resume";
-import { User, Briefcase, GraduationCap, Code, Star } from "lucide-react";
+import { User, Briefcase, GraduationCap, Code } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface ResumePreviewProps {
