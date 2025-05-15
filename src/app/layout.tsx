@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Resume Generator",
-  description: "Generate and print your resume on the go.",
+  title: "Resume Builder",
+  description: "Build and print your resume on the go.",
 };
 
 export default function RootLayout({
