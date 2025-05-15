@@ -55,9 +55,9 @@ export function ResumeForm({ resumeData, onUpdate }: ResumeFormProps) {
   };
 
   return (
-    <div className="bg-white p-6 rounded-lg border shadow-sm">
+    <div className="bg-white p-2 md:p-6 rounded-lg border shadow-sm">
       <Tabs value={activeTab} onValueChange={setActiveTab}>
-        <TabsList className="grid grid-cols-5 mb-6">
+        <TabsList className="grid grid-cols-5 gap-2 md:gap-0 mb-6">
           <TabsTrigger value="personal">Personal</TabsTrigger>
           <TabsTrigger value="education">Education</TabsTrigger>
           <TabsTrigger value="experience">Experience</TabsTrigger>
@@ -65,32 +65,32 @@ export function ResumeForm({ resumeData, onUpdate }: ResumeFormProps) {
           <TabsTrigger value="theme">Theme</TabsTrigger>
         </TabsList>
 
-        <TabsContent value="personal">
+        <TabsContent value="personal" className="px-4 md:px-0">
           <PersonalDetailsForm
             personalDetails={resumeData.personalDetails}
             onUpdate={updatePersonalDetails}
           />
         </TabsContent>
 
-        <TabsContent value="education">
+        <TabsContent value="education" className="px-4 md:px-0">
           <EducationForm
             education={resumeData.education}
             onUpdate={updateEducation}
           />
         </TabsContent>
 
-        <TabsContent value="experience">
+        <TabsContent value="experience" className="px-4 md:px-0">
           <ExperienceForm
             experience={resumeData.experience}
             onUpdate={updateExperience}
           />
         </TabsContent>
 
-        <TabsContent value="skills">
+        <TabsContent value="skills" className="px-4 md:px-0">
           <SkillsForm skills={resumeData.skills} onUpdate={updateSkills} />
         </TabsContent>
 
-        <TabsContent value="theme">
+        <TabsContent value="theme" className="px-4 md:px-0">
           <ThemeSelector
             selectedColor={resumeData.themeColor}
             onColorChange={updateThemeColor}

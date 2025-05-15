@@ -39,17 +39,15 @@ export default function ResumePage() {
         </div>
 
         <div className="w-full lg:w-1/2 print:w-full">
-          <div className="sticky top-8 print:static">
-            <div className="flex justify-between items-center mb-4 print:hidden">
-              <h2 className="text-xl font-semibold">Preview</h2>
-              <Button onClick={handlePrint} className="flex items-center gap-2">
-                <Printer className="h-4 w-4" />
-                Print
-              </Button>
-            </div>
-            <div className="border rounded-lg p-8 bg-white shadow-sm">
-              <ResumePreview resumeData={resumeData} />
-            </div>
+          <div className="flex justify-between items-center mb-4 print:hidden">
+            <h2 className="text-xl font-semibold">Preview</h2>
+            <Button onClick={handlePrint} className="flex items-center gap-2">
+              <Printer className="h-4 w-4" />
+              Print
+            </Button>
+          </div>
+          <div className="rounded-lg p-8 bg-white">
+            <ResumePreview resumeData={resumeData} />
           </div>
         </div>
       </div>

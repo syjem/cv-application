@@ -43,11 +43,11 @@ export function ThemeSelector({
                 selectedColor === color.value
                   ? "ring-black"
                   : "ring-transparent",
-                color.value === "blue" && "bg-blue-600",
-                color.value === "green" && "bg-emerald-600",
-                color.value === "purple" && "bg-purple-600",
-                color.value === "red" && "bg-rose-600",
-                color.value === "gray" && "bg-slate-600"
+                color.value === "blue" && "bg-blue-500",
+                color.value === "green" && "bg-emerald-500",
+                color.value === "purple" && "bg-purple-500",
+                color.value === "red" && "bg-rose-500",
+                color.value === "gray" && "bg-slate-500"
               )}
             >
               <span className="sr-only">{color.name}</span>

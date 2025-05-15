@@ -50,14 +50,16 @@ export function SkillsForm({ skills, onUpdate }: SkillsFormProps) {
           >
             <Code className="h-3.5 w-3.5" />
             <span>{skill.name}</span>
-            <button
+            <Button
+              size="icon"
+              variant="ghost"
               type="button"
               onClick={() => handleRemoveSkill(skill.id)}
-              className="text-muted-foreground hover:text-foreground"
+              className="text-muted-foreground hover:text-foreground size-8"
             >
               <X className="h-3.5 w-3.5" />
               <span className="sr-only">Remove {skill.name}</span>
-            </button>
+            </Button>
           </div>
         ))}
         {skills.length === 0 && (

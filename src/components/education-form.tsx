@@ -59,7 +59,9 @@ export function EducationForm({ education, onUpdate }: EducationFormProps) {
 
   return (
     <div className="space-y-6">
-      <h2 className="text-xl font-semibold mb-4">Education</h2>
+      {education.length > 0 && (
+        <h2 className="text-xl font-semibold mb-4">Education</h2>
+      )}
 
       {education.length > 0 && (
         <div className="space-y-4">
@@ -94,7 +96,7 @@ export function EducationForm({ education, onUpdate }: EducationFormProps) {
         </div>
       )}
 
-      <div className="border rounded-lg p-4 space-y-4">
+      <div className="space-y-4">
         <h3 className="font-medium">Add Education</h3>
 
         <div className="space-y-2">
@@ -104,7 +106,7 @@ export function EducationForm({ education, onUpdate }: EducationFormProps) {
             name="institution"
             value={newEducation.institution}
             onChange={handleChange}
-            placeholder="University of Example"
+            placeholder="University of the Philippines"
           />
         </div>
 

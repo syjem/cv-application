@@ -34,9 +34,9 @@ export function ResumePreview({ resumeData }: ResumePreviewProps) {
   return (
     <div className="font-serif space-y-6">
       {/* Header */}
-      <div className={cn("text-center pb-4", `border-b-2 ${themeClasses}`)}>
+      <div className={cn("text-center pb-4")}>
         <h1 className={cn("text-2xl font-bold", themeClasses)}>
-          {personalDetails.name || "Your Name"}
+          {personalDetails.name}
         </h1>
         {personalDetails.title && (
           <p className="text-lg">{personalDetails.title}</p>
@@ -158,7 +158,6 @@ export function ResumePreview({ resumeData }: ResumePreviewProps) {
                   !themeColor && "bg-blue-100 text-blue-800"
                 )}
               >
-                <Star className="h-3 w-3" />
                 {skill.name}
               </div>
             ))}
@@ -171,7 +170,7 @@ export function ResumePreview({ resumeData }: ResumePreviewProps) {
         !education.length &&
         !experience.length &&
         !skills.length && (
-          <div className="text-center text-muted-foreground py-8">
+          <div className="text-center text-muted-foreground py-8 print:hidden">
             <p>Your resume preview will appear here.</p>
             <p>
               Start by adding your personal details, education, and work

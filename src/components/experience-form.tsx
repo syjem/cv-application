@@ -59,7 +59,9 @@ export function ExperienceForm({ experience, onUpdate }: ExperienceFormProps) {
 
   return (
     <div className="space-y-6">
-      <h2 className="text-xl font-semibold mb-4">Work Experience</h2>
+      {experience.length > 0 && (
+        <h2 className="text-xl font-semibold mb-4">Work Experience</h2>
+      )}
 
       {experience.length > 0 && (
         <div className="space-y-4">
@@ -93,7 +95,7 @@ export function ExperienceForm({ experience, onUpdate }: ExperienceFormProps) {
         </div>
       )}
 
-      <div className="border rounded-lg p-4 space-y-4">
+      <div className="space-y-4">
         <h3 className="font-medium">Add Experience</h3>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -104,7 +106,7 @@ export function ExperienceForm({ experience, onUpdate }: ExperienceFormProps) {
               name="company"
               value={newExperience.company}
               onChange={handleChange}
-              placeholder="Example Corp"
+              placeholder="Meta AI"
             />
           </div>
 
